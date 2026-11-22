@@ -1,0 +1,84 @@
+﻿-------------------------------------------------------------------------------
+Test set: pe.utp.peluqueria.controller.FuncionalWebTest
+-------------------------------------------------------------------------------
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 9.362 s -- in pe.utp.peluqueria.controller.FuncionalWebTest
+-------------------------------------------------------------------------------
+Test set: pe.utp.peluqueria.dto.RegistroDtoTest
+-------------------------------------------------------------------------------
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.117 s -- in pe.utp.peluqueria.dto.RegistroDtoTest
+-------------------------------------------------------------------------------
+Test set: pe.utp.peluqueria.integration.MySqlIntegracionTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.002 s -- in pe.utp.peluqueria.integration.MySqlIntegracionTest
+-------------------------------------------------------------------------------
+Test set: pe.utp.peluqueria.integration.PersistenciaCitaIntegracionTest
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.449 s -- in pe.utp.peluqueria.integration.PersistenciaCitaIntegracionTest
+-------------------------------------------------------------------------------
+Test set: pe.utp.peluqueria.monitoreo.MetricasNegocioTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.379 s -- in pe.utp.peluqueria.monitoreo.MetricasNegocioTest
+-------------------------------------------------------------------------------
+Test set: pe.utp.peluqueria.seguridad.SeguridadAuditoriaTest
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s -- in pe.utp.peluqueria.seguridad.SeguridadAuditoriaTest
+-------------------------------------------------------------------------------
+Test set: pe.utp.peluqueria.seguridad.SeguridadAutorizacionTest
+-------------------------------------------------------------------------------
+Tests run: 37, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.540 s -- in pe.utp.peluqueria.seguridad.SeguridadAutorizacionTest
+-------------------------------------------------------------------------------
+Test set: pe.utp.peluqueria.seguridad.SeguridadCabecerasTest
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.062 s -- in pe.utp.peluqueria.seguridad.SeguridadCabecerasTest
+-------------------------------------------------------------------------------
+Test set: pe.utp.peluqueria.seguridad.SeguridadConfiguracionTest
+-------------------------------------------------------------------------------
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.094 s -- in pe.utp.peluqueria.seguridad.SeguridadConfiguracionTest
+-------------------------------------------------------------------------------
+Test set: pe.utp.peluqueria.seguridad.SeguridadCsrfTest
+-------------------------------------------------------------------------------
+Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.096 s -- in pe.utp.peluqueria.seguridad.SeguridadCsrfTest
+-------------------------------------------------------------------------------
+Test set: pe.utp.peluqueria.seguridad.SeguridadErroresTest
+-------------------------------------------------------------------------------
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.128 s -- in pe.utp.peluqueria.seguridad.SeguridadErroresTest
+-------------------------------------------------------------------------------
+Test set: pe.utp.peluqueria.seguridad.SeguridadInyeccionTest
+-------------------------------------------------------------------------------
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.185 s -- in pe.utp.peluqueria.seguridad.SeguridadInyeccionTest
+-------------------------------------------------------------------------------
+Test set: pe.utp.peluqueria.seguridad.SeguridadLoginTest
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.842 s -- in pe.utp.peluqueria.seguridad.SeguridadLoginTest
+-------------------------------------------------------------------------------
+Test set: pe.utp.peluqueria.seguridad.SeguridadMonitoreoTest
+-------------------------------------------------------------------------------
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.304 s -- in pe.utp.peluqueria.seguridad.SeguridadMonitoreoTest
+-------------------------------------------------------------------------------
+Test set: pe.utp.peluqueria.seguridad.SeguridadPasswordTest
+-------------------------------------------------------------------------------
+Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.162 s -- in pe.utp.peluqueria.seguridad.SeguridadPasswordTest
+-------------------------------------------------------------------------------
+Test set: pe.utp.peluqueria.seguridad.SeguridadValidacionTest
+-------------------------------------------------------------------------------
+Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.390 s -- in pe.utp.peluqueria.seguridad.SeguridadValidacionTest
+-------------------------------------------------------------------------------
+Test set: pe.utp.peluqueria.service.CatalogoServiceTest
+-------------------------------------------------------------------------------
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.546 s -- in pe.utp.peluqueria.service.CatalogoServiceTest
+-------------------------------------------------------------------------------
+Test set: pe.utp.peluqueria.service.CitaServiceReglasTest
+-------------------------------------------------------------------------------
+Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.279 s -- in pe.utp.peluqueria.service.CitaServiceReglasTest
+-------------------------------------------------------------------------------
+Test set: pe.utp.peluqueria.service.CitaServiceTest
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 s -- in pe.utp.peluqueria.service.CitaServiceTest
+-------------------------------------------------------------------------------
+Test set: pe.utp.peluqueria.service.MantenimientoServiceTest
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 s -- in pe.utp.peluqueria.service.MantenimientoServiceTest
+-------------------------------------------------------------------------------
+Test set: pe.utp.peluqueria.service.UsuarioServiceTest
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.118 s -- in pe.utp.peluqueria.service.UsuarioServiceTest
