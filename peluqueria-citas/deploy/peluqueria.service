@@ -1,0 +1,28 @@
+# Servicio systemd. Instalar:  sudo cp deploy/peluqueria.service /etc/systemd/system/ && sudo systemctl daemon-reload
+#                              sudo systemctl enable --now peluqueria
+# Estructura esperada: /opt/bella-estilo/current.jar (enlace al release activo), /opt/bella-estilo/logs
+# Variables y credenciales: /etc/bella-estilo/bella-estilo.env  (chmod 600, propietario root)
+[Unit]
+Description=Bella Estilo - Gestion y reserva de citas
+After=network.target
+
+[Service]
+User=bella
+Group=bella
+WorkingDirectory=/opt/bella-estilo
+EnvironmentFile=/etc/bella-estilo/bella-estilo.env
+Environment=LOG_DIR=/opt/bella-estilo/logs
+ExecStart=/usr/bin/java -XX:MaxRAMPercentage=75 -jar /opt/bella-estilo/current.jar
+SuccessExitStatus=143
+Restart=on-failure
+RestartSec=10
+TimeoutStopSec=30
+# Endurecimiento
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=full
+ProtectHome=true
+ReadWritePaths=/opt/bella-estilo/logs
+
+[Install]
+WantedBy=multi-user.target

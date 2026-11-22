@@ -1,0 +1,8 @@
+target/
+.git/
+.venv/
+logs/
+backups/
+reportes_pruebas/
+tests_python/
+*.md

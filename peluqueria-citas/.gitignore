@@ -1,0 +1,23 @@
+# Secretos y configuracion local (A02): NUNCA subir
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+application-local.properties
+# Build / IDE
+target/
+.idea/
+*.iml
+.vscode/
+*.log
+
+# Pruebas Python
+.venv/
+__pycache__/
+.pytest_cache/
+reportes_pruebas/
+app_pruebas.log
+logs/
+backups/
+*.bak

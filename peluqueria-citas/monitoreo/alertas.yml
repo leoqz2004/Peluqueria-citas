@@ -1,0 +1,39 @@
+# Reglas de alerta basicas (se ven en Prometheus > Alerts). Umbrales ajustables.
+groups:
+  - name: bella-estilo
+    rules:
+      - alert: AppCaida
+        expr: up{job="bella-estilo"} == 0
+        for: 1m
+        labels: { severity: critical }
+        annotations: { summary: "Bella Estilo no responde (1 min)" }
+
+      - alert: LoginsFallidosAltos
+        expr: increase(peluqueria_login_fallidos_total[5m]) > 20
+        for: 0m
+        labels: { severity: warning }
+        annotations: { summary: "Mas de 20 inicios de sesion fallidos en 5 min (posible fuerza bruta)" }
+
+      - alert: LatenciaP95Alta
+        expr: histogram_quantile(0.95, sum by (le) (rate(http_server_requests_seconds_bucket[5m]))) > 1
+        for: 5m
+        labels: { severity: warning }
+        annotations: { summary: "Percentil 95 de respuesta mayor a 1 s durante 5 min" }
+
+      - alert: ErroresServidor
+        expr: sum(rate(http_server_requests_seconds_count{status=~"5.."}[5m])) > 0.1
+        for: 5m
+        labels: { severity: warning }
+        annotations: { summary: "Respuestas HTTP 5xx sostenidas" }
+
+      - alert: MemoriaHeapAlta
+        expr: sum(jvm_memory_used_bytes{area="heap"}) / sum(jvm_memory_max_bytes{area="heap"}) > 0.9
+        for: 10m
+        labels: { severity: warning }
+        annotations: { summary: "Heap de la JVM por encima del 90 % durante 10 min" }
+
+      - alert: NotificacionesFallidas
+        expr: peluqueria_notificaciones_por_estado{estado="FALLIDA"} > 10
+        for: 10m
+        labels: { severity: warning }
+        annotations: { summary: "Mas de 10 notificaciones en estado FALLIDA" }

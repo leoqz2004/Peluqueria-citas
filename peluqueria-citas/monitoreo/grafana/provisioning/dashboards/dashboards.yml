@@ -1,0 +1,7 @@
+apiVersion: 1
+providers:
+  - name: bella-estilo
+    folder: Bella Estilo
+    type: file
+    options:
+      path: /var/lib/grafana/dashboards

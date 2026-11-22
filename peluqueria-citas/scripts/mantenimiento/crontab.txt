@@ -1,0 +1,11 @@
+# Cron jobs de Bella Estilo. Instalar con:   crontab scripts/mantenimiento/crontab.txt
+# (ajustar RUTA al directorio donde esta desplegado el proyecto). Hora del servidor.
+# Credenciales: archivo /etc/bella-estilo/bella-estilo.env (chmod 600), ver docs/operacion/PLAN_MANTENIMIENTO.md
+SHELL=/bin/bash
+PATH=/usr/local/bin:/usr/bin:/bin
+RUTA=/opt/bella-estilo
+
+# min hora dia mes dia_semana  comando
+30 2 * * *   $RUTA/scripts/mantenimiento/backup_bd.sh       >> $RUTA/logs/cron.log 2>&1   # respaldo diario 02:30
+15 3 * * 0   $RUTA/scripts/mantenimiento/limpiar_logs.sh    >> $RUTA/logs/cron.log 2>&1   # limpieza de logs, domingos 03:15
+*/5 * * * *  $RUTA/scripts/mantenimiento/verificar_salud.sh >> $RUTA/logs/cron.log 2>&1   # salud cada 5 minutos
