@@ -1,108 +1,349 @@
-# Bella Estilo · Gestión y Reserva de Citas (APF2)
+# Bella Estilo
 
-Aplicación web **Java 24 + Spring Boot 3.5.16** (Spring MVC, Thymeleaf, Spring Data JPA, Spring Security) basada en el informe APF2.
-Diseño: pantallas P01–P16 del prototipo (paleta vinotinto, tarjetas, tabs, modales, asistente de 4 pasos).
+## Sistema Web de Gestión y Reserva de Citas para Salones de Belleza
 
-## Ejecutar la demo (sin instalar MySQL)
-Requisitos: JDK 24 (comprobar `java -version` y `javac -version`) y Maven 3.9+.
+**Proyecto Integrador Final – APF5**
+
+Bella Estilo es una aplicación web orientada a la gestión integral de salones de belleza. Permite administrar clientes, servicios, estilistas, horarios y reservas de citas mediante una interfaz intuitiva, con controles de seguridad, validaciones de negocio y herramientas de monitoreo.
+
+El sistema ha sido desarrollado utilizando tecnologías del ecosistema Java y Spring, aplicando una arquitectura por capas y buenas prácticas de desarrollo de software.
+
+---
+
+## 1. Información general
+
+| Característica | Descripción |
+|---|---|
+| Nombre del proyecto | Bella Estilo |
+| Tipo de sistema | Aplicación web de gestión y reservas |
+| Contexto | Proyecto Integrador Final – APF5 |
+| Backend | Java 24 + Spring Boot 3.5.16 |
+| Framework web | Spring MVC |
+| Motor de plantillas | Thymeleaf |
+| Persistencia | Spring Data JPA |
+| Seguridad | Spring Security |
+| Bases de datos | H2, MySQL y SQL Server |
+| Pruebas | JUnit 5, Mockito, MockMvc y Pytest |
+| Construcción | Maven |
+| Monitoreo | Spring Actuator, Prometheus y Grafana |
+
+## 2. Objetivo del proyecto
+
+Desarrollar una plataforma web que centralice los procesos operativos de un salón de belleza, facilitando la administración de servicios, personal, clientes y citas.
+
+El sistema busca mejorar la organización de las reservas, reducir errores en la programación de horarios, fortalecer la seguridad de la información y proporcionar herramientas para el seguimiento de las operaciones.
+
+## 3. Arquitectura y tecnologías
+
+El proyecto utiliza una arquitectura organizada por responsabilidades, separando las capas de presentación, control, lógica de negocio y acceso a datos.
+
+**Tecnologías principales:**
+
+- **Java 24:** lenguaje de programación.
+- **Spring Boot 3.5.16:** plataforma principal de desarrollo.
+- **Spring MVC:** gestión de solicitudes y controladores.
+- **Thymeleaf:** generación de interfaces web.
+- **Spring Data JPA:** persistencia y acceso a datos.
+- **Spring Security:** autenticación y autorización.
+- **Maven:** gestión de dependencias y construcción.
+- **MySQL / SQL Server:** motores de base de datos.
+- **H2:** base de datos en memoria para demostraciones y pruebas.
+
+## 4. Módulos y funcionalidades implementadas
+
+El sistema contempla los siguientes módulos funcionales:
+
+| Módulo | Funcionalidades | Estado |
+|---|---|---|
+| Autenticación | Inicio de sesión, registro y control de acceso | Implementado |
+| Catálogo | Visualización, búsqueda y filtrado de servicios | Implementado |
+| Reservas | Selección de servicios, horarios y confirmación de citas | Implementado |
+| Gestión de citas | Consulta, cancelación y reprogramación | Implementado |
+| Notificaciones | Notificaciones y preferencias de usuario | Implementado |
+| Administración | Panel de recepción y gestión de operaciones | Implementado |
+| Servicios | Registro, edición y activación de servicios | Implementado |
+| Estilistas | Registro, consulta y gestión de horarios | Parcial |
+| Clientes | Listado y búsqueda de clientes | Parcial |
+| Reportes | Visualización de información y estadísticas | Parcial |
+| Agenda | Consulta de agenda del estilista | Implementado |
+
+**Diseño de interfaz:** el sistema contempla las pantallas P01–P16 del prototipo, con una identidad visual basada en una paleta vinotinto, tarjetas informativas, pestañas, ventanas modales y un asistente de reserva de cuatro pasos.
+
+### Reglas de negocio
+
+Se incorporan reglas para mantener la integridad de las operaciones:
+
+- Validación de disponibilidad y prevención de cruces de horarios.
+- Cálculo de duración de las citas según los servicios seleccionados.
+- Restricción de reservas dentro de la jornada laboral.
+- Control de estados y transiciones de las citas.
+- Gestión de notificaciones y recordatorios.
+- Conservación de registros mediante la restricción del borrado físico.
+
+## 5. Seguridad de la aplicación
+
+El proyecto incorpora controles de seguridad orientados a proteger la información y las operaciones del sistema, tomando como referencia las recomendaciones de OWASP Top 10:2025.
+
+Entre los mecanismos implementados se encuentran:
+
+- Protección CSRF.
+- Políticas de seguridad para contraseñas.
+- Control de intentos fallidos de autenticación.
+- Bloqueo temporal después de cinco intentos fallidos.
+- Validación de datos mediante DTOs.
+- Control de propiedad de recursos para prevenir accesos no autorizados (IDOR).
+- Cabeceras HTTP de seguridad, incluyendo CSP y HSTS.
+- Auditoría de eventos relacionados con la seguridad.
+- Manejo centralizado de excepciones.
+- Protección de cookies y configuración de sesiones.
+- Gestión de credenciales mediante variables de entorno.
+
+La documentación detallada se encuentra en:
+
+`docs/SEGURIDAD.md`
+
+## 6. Pruebas y aseguramiento de calidad
+
+El proyecto incluye pruebas automatizadas para verificar el comportamiento funcional, las reglas de negocio y los controles de seguridad.
+
+**Pruebas Java:**
+
+- JUnit 5.
+- Mockito.
+- MockMvc.
+- Pruebas de integración y persistencia.
+- Pruebas de autenticación y autorización.
+- Pruebas de validación y reglas de negocio.
+
+**Pruebas Python:**
+
+- Pytest.
+- Pruebas funcionales de caja negra.
+- Verificación de controles de acceso.
+- Validación de entradas.
+- Pruebas de configuración y autenticación.
+- Pruebas de navegación automatizada.
+
+**Ejecutar las pruebas Java:**
+
+```bash
+mvn test
+```
+
+**Ejecutar las pruebas Python:**
+
+```bash
+python -m pytest tests_python/ -v
+```
+
+Guías de ejecución:
+
+- `docs/guias/README_TESTING.md`
+- `docs/guias/README_TESTING_PYTHON.md`
+
+## 7. Monitoreo, despliegue y mantenimiento
+
+Se incorporan componentes para facilitar la operación y supervisión del sistema.
+
+| Área | Componentes y capacidades |
+|---|---|
+| Despliegue | Maven, JAR, Docker, Nginx y systemd |
+| Monitoreo | Spring Actuator, métricas propias y logs |
+| Visualización | Prometheus y Grafana |
+| Mantenimiento | Respaldos, restauración, limpieza de logs y verificación de salud |
+
+Documentación relacionada:
+
+- `docs/operacion/PLAN_DESPLIEGUE.md`
+- `docs/operacion/PLAN_MONITOREO.md`
+- `docs/operacion/PLAN_MANTENIMIENTO.md`
+
+## 8. Requisitos previos
+
+Para ejecutar el proyecto se requiere:
+
+- JDK 24.
+- Maven 3.9 o superior.
+- Git.
+- MySQL 8 o SQL Server, según el perfil seleccionado.
+- Python 3 para ejecutar las pruebas automatizadas correspondientes.
+
+Verificar las versiones instaladas:
+
+```bash
+java -version
+javac -version
+mvn -version
+python --version
+```
+
+## 9. Instalación y ejecución
+
+### 9.1. Clonar el repositorio
+
+```bash
+git clone https://github.com/leoqz2004/Peluqueria-citas.git
+cd Peluqueria-citas
+```
+
+Para utilizar la versión mejorada publicada:
+
+```bash
+git checkout version-mejorada-bellaestilo
+cd peluqueria-citas
+```
+
+### 9.2. Ejecutar en modo demostración
+
+El perfil `demo` utiliza H2 en memoria y datos de ejemplo, por lo que no requiere instalar MySQL.
+
+Ejecutar:
 
 ```bash
 mvn spring-boot:run
-# abrir http://localhost:8080
 ```
-El perfil por defecto es `demo`: base **H2 en memoria** con datos de ejemplo (se reinicia en cada arranque).
 
-| Rol | Usuario | Clave |
-|---|---|---|
-| Cliente | `valeria.rojas@correo.com` | `Cliente123!` |
-| Recepción (Administrador) | `recepcion@bellaestilo.pe` | `Admin123!` |
-| Estilista | `milagros@bellaestilo.pe` (también `rosa@…`, `jimena@…`) | `Estilista123!` |
+Abrir en el navegador:
 
-## Ejecutar con MySQL
-1. Ejecutar `database/schema.sql` en MySQL 8 (cambiar las claves de los usuarios de BD).
-2. Variables de entorno: `SPRING_PROFILES_ACTIVE=mysql`, `DB_USER`, `DB_PASSWORD`, y opcionalmente `ADMIN_EMAIL`, `ADMIN_PASSWORD` para crear el primer administrador.
-3. `mvn spring-boot:run`
+[http://localhost:8080](http://localhost:8080)
 
-## Ejecutar con SQL Server (SSMS 22)
-La version adaptada para SQL Server contiene los scripts en `database/SQLServer/` y la
-configuracion `application-sqlserver.properties`. Leer **`docs/guias/README_SQLSERVER.md`**
-para importar la base desde SSMS 22, cargar datos de prueba opcionales y
-conectar Java al motor de SQL Server.
+La información almacenada en H2 se reinicia al volver a iniciar la aplicación.
 
-Para iniciar con **Java 24 desde Visual Studio Code**, seguir paso a paso
-**`docs/guias/INICIAR_JAVA24_VSCODE.md`** (en Windows basta con `INICIAR_BELLA_ESTILO_SQLSERVER.cmd`).
+### 9.3. Ejecutar con MySQL
 
-## Qué está implementado (≈ 50 % del alcance)
-| Pantalla | Estado |
-|---|---|
-| P01 Login · P02 Registro | ✅ (recuperar contraseña RF03: pendiente) |
-| P03 Catálogo (cards, filtro y búsqueda) | ✅ |
-| P04–P06 Reserva en 4 pasos con horarios libres y sin cruces | ✅ |
-| P07 Mis citas (tabs, modal cancelar, reprogramar) | ✅ |
-| P08 Notificaciones y preferencias | ✅ (envío real WhatsApp/correo simulado en log) |
-| P09 Panel de recepción · P10 Gestión de citas (modales) | ✅ |
-| P11 Servicios (crear, editar, activar/desactivar) | ✅ |
-| P12 Estilistas y horarios | ◐ alta y consulta; edición de horario pendiente |
-| P13 Clientes | ◐ listado y búsqueda; "ver historial" pendiente |
-| P14–P15 Reportes | ◐ en pantalla; exportar PDF/Excel y % de ocupación pendientes |
-| P16 Agenda del estilista | ✅ |
+1. Instalar y configurar MySQL 8.
+2. Ejecutar el script `database/schema.sql`.
+3. Configurar las variables de entorno necesarias.
+4. Iniciar la aplicación con el perfil MySQL.
 
-Reglas de negocio RN01–RN06: validación de cruce con transacción y bloqueo pesimista, duración = suma de servicios, horarios dentro de la jornada, estados y transiciones, notificaciones y recordatorios 24 h / 2 h, sin borrado físico.
+Variables principales:
 
-## Pruebas
-`mvn test` (JUnit 5 + Mockito + MockMvc) · pruebas Python en `tests_python/` (ver `docs/guias/README_TESTING.md` y `docs/guias/README_TESTING_PYTHON.md`).
+```properties
+SPRING_PROFILES_ACTIVE=mysql
+DB_USER=usuario
+DB_PASSWORD=contraseña
+```
 
-## Seguridad (Semana 14)
-Controles implementados según OWASP Top 10:2025 (detalle en `docs/SEGURIDAD.md`):
-CSP y cabeceras defensivas · control de propiedad (IDOR) en confirmar/cancelar/reprogramar · bloqueo temporal tras 5 intentos fallidos ·
-política de contraseñas · auditoría de eventos de seguridad (log `SEGURIDAD`, correos enmascarados) · manejador global de errores sin trazas ·
-validación reforzada (DTOs) · cookies HttpOnly/SameSite/Secure · secretos por variables de entorno (`.env` ignorado por Git).
+Ejecución:
 
 ```bash
-scripts/seguridad/seguridad.sh   # Linux/macOS      (Windows: scripts\seguridad\seguridad.bat)
-mvn -Dtest="Seguridad*Test" test     # solo las pruebas de seguridad (re-test)
-mvn -Psecurity compile com.github.spotbugs:spotbugs-maven-plugin:4.10.4.1:spotbugs   # SAST (equivalente a Bandit)
-mvn -Psecurity org.owasp:dependency-check-maven:10.0.4:check                          # SCA  (equivalente a pip-audit)
+mvn spring-boot:run
 ```
-Evidencias en `reportes_seguridad/` (matriz de hallazgos y reporte). ZAP es opcional y **solo contra localhost**.
 
-## Despliegue, monitoreo y mantenimiento (Semanas 16-18)
-| Tema | Qué incluye | Documento |
+### 9.4. Ejecutar con SQL Server
+
+El proyecto incluye scripts de estructura y datos de ejemplo para SQL Server.
+
+Los archivos se encuentran en:
+
+`database/SQLServer/`
+
+Para configurar el motor, importar la base de datos y conectar la aplicación, consultar:
+
+`docs/guias/README_SQLSERVER.md`
+
+En Windows también se dispone del siguiente archivo de inicio:
+
+`INICIAR_BELLA_ESTILO_SQLSERVER.cmd`
+
+Para configurar Java 24 desde Visual Studio Code, consultar:
+
+`docs/guias/INICIAR_JAVA24_VSCODE.md`
+
+## 10. Credenciales de demostración
+
+Para las pruebas del perfil de demostración se contemplan las siguientes cuentas:
+
+| Rol | Usuario | Contraseña |
 |---|---|---|
-| Despliegue | JAR con Maven, systemd, nginx, Docker, `desplegar.sh/.ps1` con rollback | `docs/operacion/PLAN_DESPLIEGUE.md` |
-| Monitoreo | logs JSON con niveles, Actuator, métricas propias, Prometheus + Grafana, alertas | `docs/operacion/PLAN_MONITOREO.md` |
-| Mantenimiento | cron jobs, respaldos con retención, restauración, limpieza, verificación de salud | `docs/operacion/PLAN_MANTENIMIENTO.md` |
+| Cliente | valeria.rojas@correo.com | Cliente123! |
+| Recepción / Administrador | recepcion@bellaestilo.pe | Admin123! |
+| Estilista | milagros@bellaestilo.pe | Estilista123! |
 
-```bash
-curl http://localhost:8080/actuator/health          # {"status":"UP"}
-cd deploy && docker compose --env-file ../.env up -d --build      # app + Prometheus + Grafana
-scripts/mantenimiento/backup_bd.sh                  # Windows: scripts\mantenimiento\backup_bd.ps1
-```
+Las credenciales anteriores son exclusivamente de demostración. No deben utilizarse en un entorno productivo. Se recomienda cambiarlas y utilizar contraseñas seguras.
 
-## Estructura del proyecto
-```
+## 11. Estructura del proyecto
+
+```text
 peluqueria-citas/
-├── pom.xml · Dockerfile · .env.example · pytest.ini · requirements.txt
-├── INICIAR_BELLA_ESTILO_SQLSERVER.cmd      # arranque con un clic (Windows + SQL Server)
-├── src/main/java/pe/utp/peluqueria/
-│   ├── controller/ service/ repository/ model/ dto/ exception/   # MVC + capas (DAO via Spring Data)
-│   ├── config/ seguridad/                  # SecurityConfig, auditoria, politica de claves
-│   ├── monitoreo/                          # metricas de negocio y seguridad, X-Request-Id
-│   └── scheduler/                          # recordatorios y mantenimiento nocturno
-├── src/main/resources/                     # templates/ (Thymeleaf) · static/ · application*.properties
-├── src/test/java/                          # JUnit 5 + Mockito + MockMvc
-├── tests_python/                           # pruebas de caja negra (pytest)
-├── database/                               # schema.sql (MySQL) y SQLServer/
+│
+├── pom.xml
+├── Dockerfile
+├── .env.example
+├── pytest.ini
+├── requirements.txt
+├── INICIAR_BELLA_ESTILO_SQLSERVER.cmd
+│
+├── src/
+│   ├── main/
+│   │   ├── java/pe/utp/peluqueria/
+│   │   │   ├── controller/
+│   │   │   ├── service/
+│   │   │   ├── repository/
+│   │   │   ├── model/
+│   │   │   ├── dto/
+│   │   │   ├── exception/
+│   │   │   ├── config/
+│   │   │   ├── seguridad/
+│   │   │   ├── monitoreo/
+│   │   │   └── scheduler/
+│   │   │
+│   │   └── resources/
+│   │       ├── templates/
+│   │       ├── static/
+│   │       └── application*.properties
+│   │
+│   └── test/
+│       └── java/
+│
+├── tests_python/
+│
+├── database/
+│   ├── schema.sql
+│   └── SQLServer/
+│
 ├── scripts/
-│   ├── pruebas/  seguridad/                # ejecucion de pruebas y analisis de seguridad
-│   ├── mantenimiento/                      # respaldo, restauracion, logs, salud, cron / tareas programadas
-│   └── despliegue/                         # desplegar.sh / desplegar.ps1 (con rollback)
-├── deploy/                                 # docker-compose, systemd, nginx
-├── monitoreo/                              # Prometheus, alertas y dashboard de Grafana
-├── reportes_seguridad/                     # evidencias de pruebas de seguridad
+│   ├── pruebas/
+│   ├── seguridad/
+│   ├── mantenimiento/
+│   └── despliegue/
+│
+├── deploy/
+│
+├── monitoreo/
+│
+├── reportes_seguridad/
+│
 └── docs/
-    ├── DOCUMENTACION_TECNICA.md · SEGURIDAD.md
-    ├── guias/                              # inicio con VS Code, SQL Server, guias de pruebas
-    ├── pruebas/                            # plan e informe de pruebas
-    └── operacion/                          # planes de despliegue, monitoreo y mantenimiento
+    ├── DOCUMENTACION_TECNICA.md
+    ├── SEGURIDAD.md
+    ├── guias/
+    ├── pruebas/
+    └── operacion/
 ```
+
+## 12. Documentación y evidencias
+
+El repositorio contiene documentación técnica, guías de instalación, planes de pruebas, informes de seguridad y documentos operativos.
+
+Se recomienda consultar la carpeta `docs/` para conocer los procedimientos de instalación, configuración, validación y mantenimiento.
+
+Las evidencias de seguridad se encuentran en:
+
+`reportes_seguridad/`
+
+## 13. Estado y alcance del proyecto
+
+Bella Estilo integra funcionalidades de gestión, reservas, seguridad, pruebas automatizadas y monitoreo en una misma plataforma.
+
+En el marco del **Proyecto Integrador Final – APF5**, se presenta el sistema como una solución integral que reúne los componentes funcionales y técnicos desarrollados para la gestión de citas en salones de belleza.
+
+El proyecto contempla tanto los requerimientos funcionales como aspectos técnicos relacionados con la integridad de datos, la protección de accesos, la calidad del software y la operación del sistema.
+
+Las funcionalidades identificadas como parciales mantienen su estado documentado para facilitar futuras mejoras y ampliaciones.
+
+---
+
+**Bella Estilo – Proyecto Integrador Final APF5**
+
+Sistema web para la gestión y reserva de citas en salones de belleza.
